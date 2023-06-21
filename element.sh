@@ -6,7 +6,13 @@ MAIN() {
   # get result of the element
   GET_RESULT=$($PSQL "SELECT * FROM elements WHERE atomic_number=$1 OR symbol='$1' OR name='$1'")
 
-  echo $GET_RESULT
+  if [[ -z $GET_RESULT ]]
+  then
+    echo "I could not find that element in the database."
+  else
+    echo $GET_RESULT
+  fi
+
  }
 
 if [[ -z $1 ]]
