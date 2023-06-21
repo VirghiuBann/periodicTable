@@ -12,10 +12,9 @@ MAIN() {
 if [[ -z $1 ]]
 then
   echo Please provide an element as an argument.
-  read ELEMENT
 else
   ELEMENT=$1  
+  MAIN $ELEMENT
 fi
 
-MAIN $ELEMENT
 
